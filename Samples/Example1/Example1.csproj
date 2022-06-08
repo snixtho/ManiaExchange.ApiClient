@@ -1,15 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <OutputType>Exe</OutputType>
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <AssemblyName>ManiaExchange.Api</AssemblyName>
-        <RootNamespace>ManiaExchange.Api</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Hawf\src\Hawf\Hawf.csproj" />
+      <ProjectReference Include="..\..\ManiaExchange\ManiaExchange.csproj" />
     </ItemGroup>
 
 </Project>

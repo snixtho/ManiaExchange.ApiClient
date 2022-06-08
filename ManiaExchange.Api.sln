@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManiaExchange", "ManiaExcha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hawf", "..\Hawf\src\Hawf\Hawf.csproj", "{7F6B44E4-A856-458E-A27F-19AC596C202F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{097E4A32-AC13-44F0-80D7-55FEAF17DE65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example1", "Samples\Example1\Example1.csproj", "{590C9D68-1F40-4E25-A8E3-BF5C3738A95B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,12 @@ Global
 		{7F6B44E4-A856-458E-A27F-19AC596C202F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F6B44E4-A856-458E-A27F-19AC596C202F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F6B44E4-A856-458E-A27F-19AC596C202F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{590C9D68-1F40-4E25-A8E3-BF5C3738A95B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{590C9D68-1F40-4E25-A8E3-BF5C3738A95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{590C9D68-1F40-4E25-A8E3-BF5C3738A95B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{590C9D68-1F40-4E25-A8E3-BF5C3738A95B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{590C9D68-1F40-4E25-A8E3-BF5C3738A95B} = {097E4A32-AC13-44F0-80D7-55FEAF17DE65}
 	EndGlobalSection
 EndGlobal

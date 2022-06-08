@@ -25,5 +25,5 @@ public class TmxMappackInfo
     public float MappackValue { get; set; }
     public bool ShowLB { get; set; }
     public DateTime? EndDateLB { get; set; }
-    public string[] TagsString { get; set; }
+    public string TagsString { get; set; }
 }
