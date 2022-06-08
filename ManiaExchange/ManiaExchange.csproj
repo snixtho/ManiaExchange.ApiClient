@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>ManiaExchange.Api</AssemblyName>
+        <RootNamespace>ManiaExchange.Api</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Hawf\Hawf.csproj" />
+      <ProjectReference Include="..\..\Hawf\src\Hawf\Hawf.csproj" />
+    </ItemGroup>
+
+</Project>
