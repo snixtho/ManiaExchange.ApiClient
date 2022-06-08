@@ -1,11 +1,9 @@
 ﻿
 using ManiaExchange.Api;
 
-var api = new TmxTm2Api("Evo Bot");
+var api = new TmxTmApi("Evo Bot");
 
-var search = await api.SearchMapsAsync(options =>
-{
-    options.TrackName = new[] {"forgotten"};
-});
+var search = await api.SearchMapsAsync();
 
-Console.WriteLine(search);
+foreach (var map in search.Results)
+    Console.WriteLine(map.Name);
