@@ -3,7 +3,9 @@ using ManiaExchange.Api;
 
 var api = new TmxTmApi("Evo Bot");
 
-var search = await api.SearchMapsAsync();
+var tags = await api.GetTagsAsync();
 
-foreach (var map in search.Results)
-    Console.WriteLine(map.Name);
+foreach (var tag in tags)
+{
+    Console.WriteLine(tag.Name);
+}

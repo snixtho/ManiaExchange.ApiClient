@@ -6,6 +6,7 @@
         <Nullable>enable</Nullable>
         <AssemblyName>ManiaExchange.Api</AssemblyName>
         <RootNamespace>ManiaExchange.Api</RootNamespace>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>

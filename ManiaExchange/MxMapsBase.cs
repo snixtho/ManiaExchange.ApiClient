@@ -22,8 +22,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="secret">API Secret from Edit Mappack Info</param>
     /// <returns></returns>
     public Task<TmxActionResponse?> AddMapToMappackAsync(long mappackId, string trackId, string secret) =>
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("secret", secret)
+        WithQueryParam("secret", secret)
             .PostJsonAsync<TmxActionResponse>("/api/mappack/manage/{mappackId}/add_map/{trackId}", mappackId, trackId);
 
     /// <summary>
@@ -35,8 +34,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="secret">API Secret from Edit Mappack Info</param>
     /// <returns></returns>
     public Task<TmxActionResponse?> ChangeMapStatusInMappackAsync(long id, string mIdString, TmxStatus status, string secret) =>
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("secret", secret)
+        WithQueryParam("secret", secret)
             .PostJsonAsync<TmxActionResponse>("/api/mappack/manage/{id}/map_status/{status}/{midstring}", id, (int)status,
                 mIdString);
 
@@ -47,8 +45,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="shortName">Only needed to download unlisted maps. Note: the shortName should be added as follows, if necessary: ...{id}/{shortName}</param>
     /// <returns></returns>
     public Task<Stream> DownloadMapAsync(long id, string? shortName = null) =>
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("shortName", shortName)
+        WithQueryParam("shortName", shortName)
             .GetStreamAsync("/maps/download/{id}", id);
 
     /// <summary>
@@ -58,8 +55,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="pos">Image position index- Check via Map Info beforehand, how many images are availabl, that's the maximum</param>
     /// <returns></returns>
     public Task<Stream> DownloadMapImageHQAsync(long id, int pos) =>
-        WithUserAgent(MxUserAgent)
-            .GetStreamAsync("/maps/{id}/image/{pos}", id, pos);
+        GetStreamAsync("/maps/{id}/image/{pos}", id, pos);
 
     /// <summary>
     /// Download a MX Map's image in low quality. Check the Content-Header's content-type for the image file type (typically image/webp). Will return empty result if no image is available (...under the specified position).
@@ -68,8 +64,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="pos">Image position index- Check via Map Info beforehand, how many images are availabl, that's the maximum</param>
     /// <returns></returns>
     public Task<Stream> DownloadMapImageLQAsync(long id, int pos) =>
-        WithUserAgent(MxUserAgent)
-            .GetStreamAsync("/maps/{id}/imagethumb/{pos}", id, pos);
+        GetStreamAsync("/maps/{id}/imagethumb/{pos}", id, pos);
 
     /// <summary>
     /// Safe option that gets either the first map image (if available) or the map thumbnail from the Gbx file.
@@ -77,8 +72,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="id">MX MapID / TrackID</param>
     /// <returns></returns>
     public Task<Stream> DownloadMapImageSafeAsync(long id) =>
-        WithUserAgent(MxUserAgent)
-            .GetStreamAsync("/maps/screenshot_normal/{id}", id);
+        GetStreamAsync("/maps/screenshot_normal/{id}", id);
 
     /// <summary>
     /// Get a Map's original thumbnail as embedded in it's .Map.Gbx file.
@@ -86,8 +80,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="id">MX MapID / TrackID</param>
     /// <returns></returns>
     public Task<Stream> DownloadMapThumbnail(long id) =>
-        WithUserAgent(MxUserAgent)
-            .GetStreamAsync("/maps/thumbnail/{id}", id);
+        GetStreamAsync("/maps/thumbnail/{id}", id);
 
     /// <summary>
     /// Download a .zip of a Mappack on MX.
@@ -96,8 +89,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="secret">API Secret - only needed to download unreleased or undownloadable mappacks</param>
     /// <returns></returns>
     public Task<Stream> DownloadMappack(long id, string? secret = null) =>
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("secret", secret)
+        WithQueryParam("secret", secret)
             .GetStreamAsync("/mappack/download/{id}", id);
 
     /// <summary>
@@ -106,8 +98,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="id">MX MappackID</param>
     /// <returns></returns>
     public Task<Stream> DownloadMappackThumbnailAsync(long id) =>
-        WithUserAgent(MxUserAgent)
-            .GetStreamAsync("/mappack/thumbnail/{id}", id);
+        GetStreamAsync("/mappack/thumbnail/{id}", id);
 
     /// <summary>
     /// Get the authors of a map.
@@ -115,8 +106,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="id">MX TrackID/MapID</param>
     /// <returns></returns>
     public Task<TmxMapAuthor[]?> GetMapAuthorsAsync(long id) =>
-        WithUserAgent(MxUserAgent)
-            .GetJsonAsync<TmxMapAuthor[]>("/api/maps/get_authors/{id}", id);
+        GetJsonAsync<TmxMapAuthor[]>("/api/maps/get_authors/{id}", id);
 
     /// <summary>
     /// Get information for one or multiple maps using either TrackIDs from MX or the uid value from the Gbx file. Note: Unlisted and hidden maps are omitted.
@@ -124,8 +114,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="ids">MX MapIDs or UIDs (uid from Gbx file, max. 50 entries)</param>
     /// <returns></returns>
     public Task<TmxMapInfo[]?> GetMapInfoAsync(params long[] ids) =>
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("format", TmxOutputFormat.Json)
+        WithQueryParam("format", TmxOutputFormat.Json)
             .GetJsonAsync<TmxMapInfo[]>("/api/maps/get_map_info/multi/{ids}", string.Join(',', ids));
     
     /// <summary>
@@ -135,8 +124,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="shortName">Only needed to download unlisted maps. Note: the shortName should be added as follows, if necessary: ...{id}/{shortName}</param>
     /// <returns></returns>
     public Task<TmxMapInfo?> GetMapInfoAsync(long id, string? shortName = null) => 
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("shortName", shortName)
+        WithQueryParam("shortName", shortName)
             .GetJsonAsync<TmxMapInfo>("/api/maps/get_map_info/id/{id}", id);
 
     /// <summary>
@@ -145,8 +133,8 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="uid">Gbx uid value from the Map's Gbx file</param>
     /// <param name="shortName">Only needed to download unlisted maps. Note: the shortName should be added as follows, if necessary: ...{id}/{shortName}</param>
     /// <returns></returns>
-    public Task<TmxMapInfo?> GetMapInfoAsync(string uid, string? shortName = null) => 
-        WithUserAgent(MxUserAgent)
+    public Task<TmxMapInfo?> GetMapInfoAsync(string uid, string? shortName = null) =>
+        WithQueryParam("shortName", shortName)
             .GetJsonAsync<TmxMapInfo>("/api/maps/get_map_info/uid/{uid}", uid);
 
     /// <summary>
@@ -159,8 +147,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="id">MX MapID / TrackID</param>
     /// <returns></returns>
     public Task<TmxMapObject[]?> GetMapObjectsAsync(long id) =>
-        WithUserAgent(MxUserAgent)
-            .GetJsonAsync<TmxMapObject[]>("/api/maps/embeddedobjects/{id}", id);
+        GetJsonAsync<TmxMapObject[]>("/api/maps/embeddedobjects/{id}", id);
 
     /// <summary>
     /// Receive info about a mappack using it's MappackID.
@@ -169,8 +156,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="secret">If the mappack is unreleased, the mappack secret (Mappack -> Edit Info) must be supplied</param>
     /// <returns></returns>
     public Task<TmxMappackInfo?> GetMappackInfoAsync(long id, string? secret = null) =>
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("secret", secret)
+        WithQueryParam("secret", secret)
             .GetJsonAsync<TmxMappackInfo>("/api/mappack/get_info/{id}", id);
 
     /// <summary>
@@ -182,8 +168,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="secret">If the mappack is unreleased, the mappack secret (Mappack -> Edit Info) must be supplied</param>
     /// <returns></returns>
     public Task<TmxMappackMapInfo[]?> GetMappackMapsAsync(long id, string? secret = null) =>
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("secret", secret)
+        WithQueryParam("secret", secret)
             .GetJsonAsync<TmxMappackMapInfo[]>("/api/mappack/get_mappack_tracks/{id}", id);
 
     /// <summary>
@@ -193,8 +178,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <returns></returns>
     [Obsolete]
     public Task<TmxMapInfo?> GetTrackInfoByUidAsync(string uid) =>
-        WithUserAgent(MxUserAgent)
-            .GetJsonAsync<TmxMapInfo>("/api/tracks/get_track_info/uid/{uid}", uid);
+        GetJsonAsync<TmxMapInfo>("/api/tracks/get_track_info/uid/{uid}", uid);
 
     /// <summary>
     /// Get MX User info using the MX UserID
@@ -202,8 +186,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="userId">MX UserID</param>
     /// <returns></returns>
     public Task<TmxUserInfo?> GetUserInfoAsync(long userId) =>
-        WithUserAgent(MxUserAgent)
-            .GetJsonAsync<TmxUserInfo>("/api/users/get_user_info/{userid}", userId);
+        GetJsonAsync<TmxUserInfo>("/api/users/get_user_info/{userid}", userId);
 
     
 
@@ -215,8 +198,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="secret">API Secret from Edit Mappack Info</param>
     /// <returns></returns>
     public Task<TmxActionResponse?> RemoveMapFromMappackAsync(long id, string mIdString, string secret) =>
-        WithUserAgent(MxUserAgent)
-            .DeleteJsonAsync<TmxActionResponse>("/api/mappack/manage/{id}/remove_map/{midstring}", id, mIdString,
+        DeleteJsonAsync<TmxActionResponse>("/api/mappack/manage/{id}/remove_map/{midstring}", id, mIdString,
                 secret);
 
     /// <summary>
@@ -227,8 +209,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="searchOptions">Search parameters</param>
     /// <returns></returns>
     public Task<TmxVideoSearchResult?> SearchMapVideosAsync(Action<TmxMapVideoSearchOptions>? searchOptions = null) =>
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("api", "on")
+        WithQueryParam("api", "on")
             .WithQueryParam("format", TmxOutputFormat.Json)
             .WithQueryOptions(searchOptions)
             .GetJsonAsync<TmxVideoSearchResult>("/videosearch/search");
@@ -239,8 +220,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="searchOptions">Search parameters</param>
     /// <returns></returns>
     public Task<TmxMappackSearchResult?> SearchMappacksAsync(Action<TmxMappackSearchOptions>? searchOptions = null) =>
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("api", "on")
+        WithQueryParam("api", "on")
             .WithQueryParam("format", TmxOutputFormat.Json)
             .WithQueryOptions(searchOptions)
             .GetJsonAsync<TmxMappackSearchResult>("/mappacksearch/search");
@@ -251,8 +231,7 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="searchOptions">Search parameters</param>
     /// <returns></returns>
     public Task<TmxMapSearchResult?> SearchMapsAsync(Action<TmxMapSearchOptions>? searchOptions = null) =>
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("api", "on")
+        WithQueryParam("api", "on")
             .WithQueryParam("format", TmxOutputFormat.Json)
             .WithQueryOptions(searchOptions)
             .GetJsonAsync<TmxMapSearchResult>("/mapsearch2/search");
@@ -265,7 +244,6 @@ public class MxMapsBase<T> : MxBase<T> where T : MxMapsBase<T>
     /// <param name="query">Either: MX username, ingame login or UserID</param>
     /// <returns></returns>
     public Task<TmxSimpleUserInfo[]?> SearchUsersSimpleAsync(string query) =>
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("query", query)
+        WithQueryParam("query", query)
             .GetJsonAsync<TmxSimpleUserInfo[]>("/api/user/search");
 }

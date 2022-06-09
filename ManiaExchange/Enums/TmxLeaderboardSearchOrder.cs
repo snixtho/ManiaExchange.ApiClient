@@ -2,12 +2,12 @@
 
 public enum TmxLeaderboardSearchOrder
 {
-    MXUsernameAscending = 0,
-    MXUsernameDescending = 1,
+    MxUsernameAscending = 0,
+    MxUsernameDescending = 1,
     PositionAscending = 2,
     PositionDescending = 3,
-    MXWorldRecordsDescending = 4,
-    MXWorldRecordsAscending = 5,
+    MxWorldRecordsDescending = 4,
+    MxWorldRecordsAscending = 5,
     LastChangeDateDescending = 6,
     LastChangeDateAscending = 7,
     Top2RecordsDescending = 8,

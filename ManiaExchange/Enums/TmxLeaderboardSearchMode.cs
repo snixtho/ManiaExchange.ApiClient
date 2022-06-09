@@ -1,6 +1,6 @@
 ﻿namespace ManiaExchange.Api.Enums;
 
-public enum TmxLeaderboardSearchMode : int
+public enum TmxLeaderboardSearchMode
 {
     Seasonal = 0,
     Cumulative = 1

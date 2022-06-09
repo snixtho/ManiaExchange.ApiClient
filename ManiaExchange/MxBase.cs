@@ -5,11 +5,9 @@ namespace ManiaExchange.Api;
 
 public class MxBase<T> : ApiBase<T> where T : MxBase<T>
 {
-    protected string MxUserAgent { get; }
-
     protected MxBase(string userAgent)
     {
-        MxUserAgent = userAgent;
+        Configure(options => options.DefaultUserAgent = userAgent);
     }
     
     /// <summary>
@@ -17,6 +15,5 @@ public class MxBase<T> : ApiBase<T> where T : MxBase<T>
     /// </summary>
     /// <returns></returns>
     public Task<TmxTag[]?> GetTagsAsync() =>
-        WithUserAgent(MxUserAgent)
-            .GetJsonAsync<TmxTag[]>("/api/tags/gettags");
+        GetJsonAsync<TmxTag[]>("/api/tags/gettags");
 }

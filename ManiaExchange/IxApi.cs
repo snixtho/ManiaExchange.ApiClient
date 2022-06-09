@@ -22,8 +22,7 @@ public class IxApi : MxBase<IxApi>
     /// <param name="ignoreDir">false(default): Puts items in their respective directories, true: Ignores directories of items and puts all in the root directory</param>
     /// <returns></returns>
     public Task<Stream> DownloadBasketAsync(long userId, bool ignoreDir = false) =>
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("ignDir", ignoreDir)
+        WithQueryParam("ignDir", ignoreDir)
             .GetStreamAsync("/basket/download/{userID}", userId);
 
     /// <summary>
@@ -32,17 +31,15 @@ public class IxApi : MxBase<IxApi>
     /// <param name="id">IX Item ID</param>
     /// <returns></returns>
     public Task<Stream> DownloadItemAsync(long id) =>
-        WithUserAgent(MxUserAgent)
-            .GetStreamAsync("/item/download/{id}", id);
+        GetStreamAsync("/item/download/{id}", id);
 
     /// <summary>
     /// Download a single item set from IX (.zip).
     /// </summary>
     /// <param name="id">IX Item Set Identifier</param>
     /// <returns></returns>
-    public Task<Stream> DownloadItemSetAsync(long id) =>
-        WithUserAgent(MxUserAgent)
-            .GetStreamAsync("/set/download/{id}", id);
+    public Task<Stream> DownloadItemSetAsync(long id) => 
+        GetStreamAsync("/set/download/{id}", id);
 
     /// <summary>
     /// Gets an IX User's basket, sorted by Set (grouped) and then the date in which the item was added.
@@ -50,8 +47,7 @@ public class IxApi : MxBase<IxApi>
     /// <param name="userId">MX UserID to get the basket from</param>
     /// <returns></returns>
     public Task<IxBasket?> GetBasketAsync(long userId) =>
-        WithUserAgent(MxUserAgent)
-            .GetJsonAsync<IxBasket>("/api/user/get_basket/{userID}", userId);
+        GetJsonAsync<IxBasket>("/api/user/get_basket/{userID}", userId);
 
     /// <summary>
     /// Get an item's icon as displayed ingame.
@@ -61,8 +57,7 @@ public class IxApi : MxBase<IxApi>
     /// <param name="id">IX Item identifier</param>
     /// <returns></returns>
     public Task<Stream> GetItemIconAsync(long id) =>
-        WithUserAgent(MxUserAgent)
-            .GetStreamAsync("/item/icon/{id}");
+        GetStreamAsync("/item/icon/{id}");
 
     /// <summary>
     /// Item information based on IX IDs.
@@ -70,8 +65,7 @@ public class IxApi : MxBase<IxApi>
     /// <param name="ids">IX Item IDs</param>
     /// <returns></returns>
     public Task<IxItemInfo[]?> GetItemInfoAsync(params long[] ids) =>
-        WithUserAgent(MxUserAgent)
-            .GetJsonAsync<IxItemInfo[]>("/api/item/get_item_info/multi/{ids}", ids);
+        GetJsonAsync<IxItemInfo[]>("/api/item/get_item_info/multi/{ids}", ids);
 
     /// <summary>
     /// Get an item set image using the position parameter (max: 5). You can get the max. amount of available images using the ImageCount parameter from the Get Set Info Method.
@@ -80,8 +74,7 @@ public class IxApi : MxBase<IxApi>
     /// <param name="position">Image index, between 1 and 5 (for max. available images, see ImageCount in Get Set Info) - empty or 0 returns first image</param>
     /// <returns></returns>
     public Task<Stream> GetItemSetImageAsync(long id, int position = 0) =>
-        WithUserAgent(MxUserAgent)
-            .GetStreamAsync("/set/image/{id}/{position}", id, position);
+        GetStreamAsync("/set/image/{id}/{position}", id, position);
 
     /// <summary>
     /// Item Set information with all included items
@@ -89,8 +82,7 @@ public class IxApi : MxBase<IxApi>
     /// <param name="ids">ItemExchange Set IDs</param>
     /// <returns></returns>
     public Task<IxItemSetInfo[]?> GetItemSetInfoAsync(params long[] ids) =>
-        WithUserAgent(MxUserAgent)
-            .GetJsonAsync<IxItemSetInfo[]>("/api/set/get_set_info/multi/{ids}", ids);
+        GetJsonAsync<IxItemSetInfo[]>("/api/set/get_set_info/multi/{ids}", ids);
 
     /// <summary>
     /// Gets a custom item image that has been uploaded next to the item.
@@ -100,8 +92,7 @@ public class IxApi : MxBase<IxApi>
     /// <param name="id">IX Item Identifier</param>
     /// <returns></returns>
     public Task<Stream> GetItemThumbnailAsync(long id) =>
-        WithUserAgent(MxUserAgent)
-            .GetStreamAsync("/item/thumbnail/{id}", id);
+        GetStreamAsync("/item/thumbnail/{id}", id);
 
     /// <summary>
     /// Search item sets using various filters. The results are paged.
@@ -109,8 +100,7 @@ public class IxApi : MxBase<IxApi>
     /// <param name="searchOptions">Search parameters</param>
     /// <returns></returns>
     public Task<IxItemSetSearchResult?> SearchItemSetsAsync(Action<IxItemSetSearchOptions>? searchOptions = null) =>
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("api", "on")
+        WithQueryParam("api", "on")
             .WithQueryParam("format", TmxOutputFormat.Json)
             .WithQueryOptions(searchOptions)
             .GetJsonAsync<IxItemSetSearchResult>("/setsearch/search");
@@ -121,8 +111,7 @@ public class IxApi : MxBase<IxApi>
     /// <param name="searchOptions">Search parameters</param>
     /// <returns></returns>
     public Task<IxItemSearchResult?> SearchItemsAsync(Action<IxItemSearchOptions>? searchOptions = null) =>
-        WithUserAgent(MxUserAgent)
-            .WithQueryParam("api", "on")
+        WithQueryParam("api", "on")
             .WithQueryParam("format", TmxOutputFormat.Json)
             .WithQueryOptions(searchOptions)
             .GetJsonAsync<IxItemSearchResult>("/itemsearch/search");
