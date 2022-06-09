@@ -26,6 +26,9 @@ foreach (var tag in tags)
 }
 ```
 
+## Examples
+You can find more examples in the [Samples](Samples/) directory.
+
 # Documentation
 Since all the methods have an almost direct 1:1 mapping to the original API as defined at [api2.mania.exchange](https://api2.mania.exchange/) you can use this website as a reference. The methods are categorized into their respective classes. All the methods and objects are also commented with the same documentation on the MX API docs website for your convenience.
 
