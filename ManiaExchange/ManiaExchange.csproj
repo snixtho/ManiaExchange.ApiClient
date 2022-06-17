@@ -14,10 +14,12 @@
         <PackageLicenseUrl>https://github.com/snixtho/ManiaExchange.Api/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/snixtho/ManiaExchange.Api</RepositoryUrl>
         <PackageTags>trackmania,tmx,mx,trackmania exchange,api,client</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Hawf" Version="1.0.3" />
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
 </Project>
