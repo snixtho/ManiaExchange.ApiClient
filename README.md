@@ -4,6 +4,12 @@ General purpose API client for [ManiaExchange](https://mania.exchange/). The lib
 
 Built with the [HTTP API Wrapper Framework](https://github.com/snixtho/hawf).
 
+# Installation
+You can find the package on [NuGet](https://www.nuget.org/packages/ManiaExchange.Api) or install with the dotnet tool:
+```
+dotnet add package ManiaExchange.Api
+```
+
 # Usage
 The library exposes classes for each of MX's websites:
 - [`IxApi`](https://github.com/snixtho/ManiaExchange.Api/blob/master/ManiaExchange/IxApi.cs): [Item Exchange API](https://api2.mania.exchange/search?s=5)
