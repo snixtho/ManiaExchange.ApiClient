@@ -10,5 +10,6 @@ public class TmxTm2Api : MxMapsBase<TmxTm2Api>
 {
     public TmxTm2Api(string userAgent) : base(userAgent)
     {
+        
     }
 }

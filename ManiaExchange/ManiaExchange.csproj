@@ -10,7 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Hawf\src\Hawf\Hawf.csproj" />
+      <PackageReference Include="Hawf" Version="1.0.3" />
     </ItemGroup>
 
 </Project>
