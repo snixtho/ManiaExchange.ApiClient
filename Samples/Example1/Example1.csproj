@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\ManiaExchange\ManiaExchange.csproj" />
+      <ProjectReference Include="..\..\ManiaExchange.ApiClient\ManiaExchange.ApiClient.csproj" />
     </ItemGroup>
 
 </Project>

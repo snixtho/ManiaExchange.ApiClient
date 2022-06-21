@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManiaExchange", "ManiaExchange\ManiaExchange.csproj", "{B3DFEC01-7868-4A69-96E3-9C7DA4BAE820}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManiaExchange.ApiClient", "ManiaExchange.ApiClient\ManiaExchange.ApiClient.csproj", "{B3DFEC01-7868-4A69-96E3-9C7DA4BAE820}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{097E4A32-AC13-44F0-80D7-55FEAF17DE65}"
 EndProject

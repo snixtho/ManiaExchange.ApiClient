@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>ManiaExchange.ApiClient</AssemblyName>
+        <RootNamespace>ManiaExchange.ApiClient</RootNamespace>
+        <Nullable>enable</Nullable>
+        <Title>ManiaExchange.ApiClient</Title>
+        <Authors>snixtho</Authors>
+        <Description>Mania exchange general API client.</Description>
+        <PackageProjectUrl>https://github.com/snixtho/ManiaExchange.ApiClient</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/snixtho/ManiaExchange.ApiClient/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/snixtho/ManiaExchange.ApiClient</RepositoryUrl>
+        <PackageTags>trackmania,tmx,mx,trackmania exchange,api,client</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageId>ManiaExchange.ApiClient</PackageId>
+        <Product>ManiaExchange.ApiClient</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Hawf" Version="1.0.3" />
+        <None Include="..\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+</Project>

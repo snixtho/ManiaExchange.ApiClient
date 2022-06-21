@@ -1,5 +1,5 @@
 ﻿
-using ManiaExchange.Api;
+using ManiaExchange.ApiClient;
 
 var api = new MxTmApi("Evo Bot");
 

@@ -1,7 +1,0 @@
-﻿namespace ManiaExchange.Api.Models.Search;
-
-public class TmxSearchResult<T>
-{
-    public T[] Results { get; set; }
-    public int TotalItemCount { get; set; }
-}
