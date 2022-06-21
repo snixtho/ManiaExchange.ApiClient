@@ -12,13 +12,21 @@ public class MxBase<T> : ApiBase<T> where T : MxBase<T>
         Configure(options => options.DefaultUserAgent = userAgent);
     }
 
-    public T UseCache(bool enable = true)
+    /// <summary>
+    /// Disable the cache for the next requests.
+    /// </summary>
+    /// <returns></returns>
+    public T DisableCache()
     {
-        if (!enable)
-            CacheTime = TimeSpan.Zero;
+        CacheTime = TimeSpan.Zero;
         return (T) this;
     }
 
+    /// <summary>
+    /// Set the amount of time to cache a GET request for.
+    /// </summary>
+    /// <param name="time"></param>
+    /// <returns></returns>
     public T SetCacheTime(TimeSpan time)
     {
         CacheTime = time;
