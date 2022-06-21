@@ -13,9 +13,9 @@ dotnet add package ManiaExchange.ApiClient
 # Usage
 The library exposes classes for each of MX's websites:
 - [`IxApi`](https://github.com/snixtho/ManiaExchange.ApiClient/blob/master/ManiaExchange.ApiClient/IxApi.cs): [Item Exchange API](https://api2.mania.exchange/search?s=5)
-- [`MxSmApi`](https://github.com/snixtho/ManiaExchange.ApiClient/blob/master/ManiaExchange.ApiClient/TmxSmApi.cs): [ShootMania Exchange API](https://api2.mania.exchange/search?s=3)
-- [`MxTm2Api`](https://github.com/snixtho/ManiaExchange.ApiClient/blob/master/ManiaExchange.ApiClient/TmxTm2Api.cs): [TrackMania 2 Exchange API](https://api2.mania.exchange/search?s=1)
-- [`MxTmApi`](https://github.com/snixtho/ManiaExchange.ApiClient/blob/master/ManiaExchange.ApiClient/TmxTmApi.cs): [TrackMania 2020 Exchange API](https://api2.mania.exchange/search?s=2)
+- [`MxSmApi`](https://github.com/snixtho/ManiaExchange.ApiClient/blob/master/ManiaExchange.ApiClient/MxSmApi.cs): [ShootMania Exchange API](https://api2.mania.exchange/search?s=3)
+- [`MxTm2Api`](https://github.com/snixtho/ManiaExchange.ApiClient/blob/master/ManiaExchange.ApiClient/MxTm2Api.cs): [TrackMania 2 Exchange API](https://api2.mania.exchange/search?s=1)
+- [`MxTmApi`](https://github.com/snixtho/ManiaExchange.ApiClient/blob/master/ManiaExchange.ApiClient/MxTmApi.cs): [TrackMania 2020 Exchange API](https://api2.mania.exchange/search?s=2)
 
 ## Example basic usage
 ```csharp
