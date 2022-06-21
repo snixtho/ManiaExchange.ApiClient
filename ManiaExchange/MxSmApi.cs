@@ -6,9 +6,9 @@ namespace ManiaExchange.Api;
 /// API client for ShootMania Exchange.
 /// </summary>
 [ApiClient("https://sm.mania.exchange")]
-public class TmxSmApi : MxMapsBase<TmxSmApi>
+public class MxSmApi : MxMapsBase<MxSmApi>
 {
-    public TmxSmApi(string userAgent) : base(userAgent)
+    public MxSmApi(string userAgent) : base(userAgent)
     {
     }
 }

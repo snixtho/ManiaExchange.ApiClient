@@ -1,7 +1,7 @@
 ﻿
 using ManiaExchange.Api;
 
-var api = new TmxTmApi("Evo Bot");
+var api = new MxTmApi("Evo Bot");
 
 var search = await api.SearchMapsAsync(filter =>
 {

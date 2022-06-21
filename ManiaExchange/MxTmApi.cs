@@ -6,9 +6,9 @@ namespace ManiaExchange.Api;
 /// API client for TrackMania 2020 Exchange.
 /// </summary>
 [ApiClient("https://trackmania.exchange")]
-public class TmxTmApi : TmxMapsBase<TmxTmApi>
+public class MxTmApi : TmxMapsBase<MxTmApi>
 {
-    public TmxTmApi(string userAgent) : base(userAgent)
+    public MxTmApi(string userAgent) : base(userAgent)
     {
     }
 }
