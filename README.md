@@ -5,9 +5,9 @@ General purpose API client for [ManiaExchange](https://mania.exchange/). The lib
 Built with the [HTTP API Wrapper Framework](https://github.com/snixtho/hawf).
 
 # Installation
-You can find the package on [NuGet](https://www.nuget.org/packages/ManiaExchange.Api) or install with the dotnet tool:
+You can find the package on [NuGet](https://www.nuget.org/packages/ManiaExchange.ApiClient) or install with the dotnet tool:
 ```
-dotnet add package ManiaExchange.Api
+dotnet add package ManiaExchange.ApiClient
 ```
 
 # Usage
