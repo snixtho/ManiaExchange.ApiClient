@@ -15,7 +15,8 @@ public class TmxMapsBase<T> : MxMapsBase<T> where T : TmxMapsBase<T>
     /// </summary>
     /// <returns></returns>
     public Task<TmxLeaderboardSeason[]?> GetLeaderboardSeasonsAsync() =>
-        WithQueryParam("format", TmxOutputFormat.Json)
+        CacheResponseFor(CacheTime)
+            .WithQueryParam("format", TmxOutputFormat.Json)
             .GetJsonAsync<TmxLeaderboardSeason[]>("/api/leaderboard/getseasons");
     
     /// <summary>
@@ -24,7 +25,8 @@ public class TmxMapsBase<T> : MxMapsBase<T> where T : TmxMapsBase<T>
     /// <param name="id">MX ReplayID</param>
     /// <returns></returns>
     public Task<TmxReplayInfo?> GetReplayAsync(long id) =>
-        GetJsonAsync<TmxReplayInfo>("/api/replays/get_replay_info/{id}", id);
+        CacheResponseFor(CacheTime)
+            .GetJsonAsync<TmxReplayInfo>("/api/replays/get_replay_info/{id}", id);
     
     /// <summary>
     /// Get one or multiple User's seasonal / cumulative leaderboard stats.
@@ -33,7 +35,8 @@ public class TmxMapsBase<T> : MxMapsBase<T> where T : TmxMapsBase<T>
     /// <param name="ids">MX UserIDs</param>
     /// <returns></returns>
     public Task<TmxUserLeaderboardStats[]?> GetUserLeaderboardStatsAsync(int seasonId, params long[] ids) =>
-        GetJsonAsync<TmxUserLeaderboardStats[]>("/api/leaderboard/season/{SeasonID}/user/{ids}", seasonId,
+        CacheResponseFor(CacheTime)
+            .GetJsonAsync<TmxUserLeaderboardStats[]>("/api/leaderboard/season/{SeasonID}/user/{ids}", seasonId,
                 string.Join(',', ids));
     
     /// <summary>
@@ -42,7 +45,8 @@ public class TmxMapsBase<T> : MxMapsBase<T> where T : TmxMapsBase<T>
     /// <param name="searchOptions">Search parameters</param>
     /// <returns></returns>
     public Task<TmxLeaderboardSearchResult?> SearchLeaderboardAsync(Action<TmxLeaderboardSearchOptions>? searchOptions = null) =>
-        WithQueryParam("api", "on")
+        CacheResponseFor(CacheTime)
+            .WithQueryParam("api", "on")
             .WithQueryParam("format", TmxOutputFormat.Json)
             .WithQueryOptions(searchOptions)
             .GetJsonAsync<TmxLeaderboardSearchResult>("/leaderboard/search");
@@ -56,6 +60,7 @@ public class TmxMapsBase<T> : MxMapsBase<T> where T : TmxMapsBase<T>
     /// <param name="amount">Amount of replays starting from the MX World Record to get (limited to 25)</param>
     /// <returns></returns>
     public Task<TmxReplayInfo[]?> GetMapRecordsAsync(long id, int? amount = null) =>
-        WithQueryParam("amount", amount)
+        CacheResponseFor(CacheTime)
+            .WithQueryParam("amount", amount)
             .GetJsonAsync<TmxReplayInfo[]>("/api/replays/get_replays/{id}", id);
 }

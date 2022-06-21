@@ -3,6 +3,8 @@ using ManiaExchange.Api;
 
 var api = new MxTmApi("Evo Bot");
 
+api.SetCacheTime(TimeSpan.FromSeconds(10));
+
 var search = await api.SearchMapsAsync(filter =>
 {
     filter.Tags = new[] {2};
