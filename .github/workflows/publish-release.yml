@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     env:
-      SOLUTION: 'ManiaExchange.Api.sln'
+      SOLUTION: 'ManiaExchange.ApiClient.sln'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -43,4 +43,4 @@ jobs:
           path: ${{ github.workspace }}/package.zip
       
       - name: NuGet Publish
-        run: dotnet nuget push "package/ManiaExchange.Api.${{github.ref_name}}.nupkg" --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push "package/ManiaExchange.ApiClient.${{github.ref_name}}.nupkg" --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
