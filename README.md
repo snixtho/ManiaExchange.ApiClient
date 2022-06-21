@@ -13,9 +13,9 @@ dotnet add package ManiaExchange.Api
 # Usage
 The library exposes classes for each of MX's websites:
 - [`IxApi`](https://github.com/snixtho/ManiaExchange.Api/blob/master/ManiaExchange/IxApi.cs): [Item Exchange API](https://api2.mania.exchange/search?s=5)
-- [`TmxSmApi`](https://github.com/snixtho/ManiaExchange.Api/blob/master/ManiaExchange/TmxSmApi.cs): [ShootMania Exchange API](https://api2.mania.exchange/search?s=3)
-- [`TmxTm2Api`](https://github.com/snixtho/ManiaExchange.Api/blob/master/ManiaExchange/TmxTm2Api.cs): [TrackMania 2 Exchange API](https://api2.mania.exchange/search?s=1)
-- [`TmxTmApi`](https://github.com/snixtho/ManiaExchange.Api/blob/master/ManiaExchange/TmxTmApi.cs): [TrackMania 2020 Exchange API](https://api2.mania.exchange/search?s=2)
+- [`MxSmApi`](https://github.com/snixtho/ManiaExchange.Api/blob/master/ManiaExchange/TmxSmApi.cs): [ShootMania Exchange API](https://api2.mania.exchange/search?s=3)
+- [`MxTm2Api`](https://github.com/snixtho/ManiaExchange.Api/blob/master/ManiaExchange/TmxTm2Api.cs): [TrackMania 2 Exchange API](https://api2.mania.exchange/search?s=1)
+- [`MxTmApi`](https://github.com/snixtho/ManiaExchange.Api/blob/master/ManiaExchange/TmxTmApi.cs): [TrackMania 2020 Exchange API](https://api2.mania.exchange/search?s=2)
 
 ## Example basic usage
 ```csharp
@@ -33,6 +33,9 @@ foreach (var tag in tags)
     Console.WriteLine(tag.Name);
 }
 ```
+
+## Caching
+Since ManiaExchange encourage caching of GET methods, you can cache time by using the `SetCacheTime` method. This will cache all next GET requests for the specified time. Caching is disabled by default.
 
 ## Examples
 You can find more examples in the [Samples](Samples/) directory.
