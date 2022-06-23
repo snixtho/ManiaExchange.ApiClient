@@ -19,7 +19,7 @@ The library exposes classes for each of MX's websites:
 
 ## Example basic usage
 ```csharp
-using ManiaExchange.Api;
+using ManiaExchange.ApiClient;
 
 // instanitate the API class, pass a user agent to the constructor
 var api = new TmxTmApi("My MX Client");
