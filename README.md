@@ -37,6 +37,8 @@ foreach (var tag in tags)
 ## Caching
 Since ManiaExchange encourage caching of GET methods, you can cache time by using the `SetCacheTime` method. This will cache all next GET requests for the specified time. Caching is disabled by default.
 
+Cache can be disabled by either passing `TimeSpan.Zero` to `SetCacheTime` or use the shortcut `DisableCache` method.
+
 ## Examples
 You can find more examples in the [Samples](Samples/) directory.
 
