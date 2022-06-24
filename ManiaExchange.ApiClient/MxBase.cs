@@ -32,12 +32,14 @@ public class MxBase<T> : ApiBase<T> where T : MxBase<T>
         CacheTime = time;
         return (T) this;
     }
-    
+
     /// <summary>
     /// Get an array of all current map & mappack / item & set tags.
     /// </summary>
+    /// <param name="cancelToken"></param>
     /// <returns></returns>
-    public Task<TmxTag[]?> GetTagsAsync() =>
-        CacheResponseFor(CacheTime)
+    public Task<TmxTag[]?> GetTagsAsync(CancellationToken cancelToken = default) =>
+        WithCancelToken(cancelToken)
+            .CacheResponseFor(CacheTime)
             .GetJsonAsync<TmxTag[]>("/api/tags/gettags");
 }
