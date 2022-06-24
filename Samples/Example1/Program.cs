@@ -1,7 +1,7 @@
 ﻿
 using ManiaExchange.ApiClient;
 
-var api = new MxTmApi("Evo Bot");
+var api = new MxTmApi(".NET ManiaExchange.ApiClient Example");
 
 api.SetCacheTime(TimeSpan.FromSeconds(10));
 
