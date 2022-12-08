@@ -13,6 +13,7 @@ public class TmxMapInfo
     public string AuthorLogin { get; set; }
     public string MapType { get; set; }
     public string TitlePack { get; set; }
+    public string TrackUID { get; set; }
     public string Mood { get; set; }
     public int DisplayCost { get; set; }
     public string ModName { get; set; }
